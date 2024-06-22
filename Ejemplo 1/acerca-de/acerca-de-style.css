@@ -1,0 +1,19 @@
+nav{
+    background-color: greenyellow;
+    padding: 10px;
+}
+
+body{
+    margin: 0px;
+}
+
+.tablecontainer{
+    display: flex;
+    justify-content:center ;
+}
+
+table{
+    font-family: "Arvo", serif;
+    margin: 20px;
+    border: 2px solid;
+}
