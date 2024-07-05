@@ -36,42 +36,55 @@
             </div>
         </div>
     </nav>
-    <div class="container text center">
-        <% ArrayList<String> datosProducto = (ArrayList) request.getAttribute("datosProducto");%>
-        <%if (datosProducto != null) {%>
-        <%for (String producto : datosProducto) {%>
-        <ul>
-            <li><%=producto%></li>
-        </ul>
-        <%}%>
-        <%}%>
+    <%
+        String nombreProducto = request.getParameter("nombreProducto");
+        if (nombreProducto == null || nombreProducto.isEmpty()) {
+    %>
+    <h1>Por favor, completa el Nombre</h1>
+    <%
+    } else {
+    %>
+    <% ArrayList<String> datosProducto = (ArrayList) request.getAttribute("datosProducto");%>
+    <% if (datosProducto != null) { %>
+    <h1>El Producto Llego con exito</h1>
+    <% for (String producto : datosProducto) {%>
+    <ul>
+        <li class="list-unstyled"><%=producto%></li>
+    </ul>
+    <% }%>
+    <% }%>
 
-    </div>
-     <div class="container w-100">
-        <form class=" mt-3">
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="nombreproducto" name="nombreProducto" placeholder="">
-                <label for="nombreproducto">Nombre Del Producto</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="marcaproducto" name="marcaProducto" placeholder="">
-                <label for="marcaproducto">Marca Del Producto</label>
-            </div>
-            <div class="form-floating mb-3">
-                <textarea class="form-control" placeholder="Leave a comment here" id="descripcionproducto" name="descripcionProducto" style="height: 100px"></textarea>
-                <label for="descripcionproducto">Descripción</label>
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text">Q.</span>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-            </div>
-            <div>
-                <input type ="submit"class ="btn btn-outline-success" value ="agregar">
-            </div>
-        </form>
+    <h1>El Producto Llegó con éxito</h1>
+    <%
+        }
+    %>
 
-    </div>
+</div>
+<div class="container w-100">
+    <form class=" mt-3">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="nombreproducto" name="nombreProducto" placeholder="">
+            <label for="nombreproducto">Nombre Del Producto</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="marcaproducto" name="marcaProducto" placeholder="">
+            <label for="marcaproducto">Marca Del Producto</label>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea class="form-control" placeholder="Leave a comment here" id="descripcionproducto" name="descripcionProducto" style="height: 100px"></textarea>
+            <label for="descripcionproducto">Descripción</label>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Q.</span>
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+        </div>
+        <div>
+            <input type ="submit"class ="btn btn-outline-success" value ="agregar">
+        </div>
+    </form>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
